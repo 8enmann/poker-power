@@ -6,8 +6,8 @@ var app = new Vue({
   data: {
     hands: '',
     shared: '',
-    players: '',
-    results: [],
+    players: 2,
+    results: undefined,
   }
 });
 

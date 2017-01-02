@@ -84,8 +84,12 @@
       <div class="container" v-if="results">
         <h3 v-for="result in results">
           <span v-for="card in result.hand">{{card.rendered}}</span>:
-          <span>{{result.strength}}</span>
+          <span><strong>Power</strong> {{result.strength}}</span>
+          <span><strong>Winnings</strong>
+            <span v-bind:class="{green: result.ev >= 1, red: result.ev < 1}">{{result.ev}}x</span>
+          </span>
         </h3>
+        <small>Power is the likelihood from 0 to 1 that you will win against one opponent<br /> Winnings is the multiplier of the money you bet that you can expect to make against {{(players || 2) - 1}} opponent<span v-if="players > 2">s</span></small>
       </div>
     </div>
 
