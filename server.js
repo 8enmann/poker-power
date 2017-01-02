@@ -41,16 +41,15 @@ function getPower(shared, hands, players) {
 }
 
 function getHandPower(holeCards,sharedCards){//hole cards are my two secret cards
-  let holeInstances = countInstances(holeCards);
   let myCards = joinCards(holeCards,sharedCards);
   let myInstances = countInstances(myCards);
   let opponentInstances = countInstances(sharedCards);
   let deckQuantity = newDeck();
-  let opponentDeckQuantity = arraySubtract(deckQuantity,holeInstances);//I have specific cards that my opponent cannot draw
+  deckQuantity = arraySubtract(deckQuantity,myInstances);//the deck is missing cards that are showing
   let myFlushes = flushWays(myCards);
   let myWays = getWaysArray(deckQuantity,myInstances,myFlushes);
   let opponentFlushes = flushWays(sharedCards);
-  let opponentWays = getWaysArray(opponentDeckQuantity,opponentInstances,opponentFlushes);
+  let opponentWays = getWaysArray(deckQuantity,opponentInstances,opponentFlushes);
   let powerArray = accumulateFraction(opponentWays);
   let handPower = expectedValue(myWays,powerArray);
   return Math.round(handPower*1000)/1000;
