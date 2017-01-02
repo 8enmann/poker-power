@@ -10,8 +10,7 @@ let app = http.createServer(function(req, res) {
   let parsed = url.parse(req.url, true);
   if (parsed.path === "/strength") {
     getParams(req, parsed).then(params => {
-      let {shared, hands, players} = params;
-      let result = getPower(shared, hands, players);
+      let result = getPower(params.shared, params.hands, params.players);
       res.writeHead(200, {
         'Content-Type': 'text/json'});
       res.end(JSON.stringify(result));
