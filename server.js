@@ -36,7 +36,7 @@ function getPower(shared, hands, players) {
   return splitHands(strToCards(hands)).map(hand => {
     let handPower = getHandPower(hand,shared);
     let expectedValue =  players*Math.pow(handPower,players-1);
-    return {hand: hand, strength: handPower,ev:expectedValue};
+    return {hand: hand, strength: handPower,ev:expectedValue.toFixed(2)};
   });
 }
 
