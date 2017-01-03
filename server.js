@@ -1,5 +1,6 @@
 'use strict';
 
+require('newrelic');
 let os = require('os');
 let nodeStatic = require('node-static');
 let http = require('http');
