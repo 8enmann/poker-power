@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/8enmann/poker-power#readme",
   "dependencies": {
+    "newrelic": "^1.36.0",
     "node-static": "^0.7.9"
   },
   "devDependencies": {
